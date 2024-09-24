@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Room Booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://example.com/hotel-background.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            width: 400px;
+            text-align: center;
+        }
+
+        input[type="text"],
+        input[type="datetime-local"],
+        input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0 20px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #1e90ff;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #1c86ee;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Hotel Room Booking</h1>
+        <form id="hotelForm">
+            <label for="userId">User ID:</label>
+            <input type="text" id="userId" name="userId" required>
+
+            <label for="orderId">Order ID:</label>
+            <input type="text" id="orderId" name="orderId" required>
+
+            <label for="productId">Room Type ID:</label>
+            <input type="text" id="productId" name="productId" required>
+
+            <label for="checkInDate">Check-In Date:</label>
+            <input type="datetime-local" id="checkInDate" name="checkInDate" required>
+
+            <label for="checkOutDate">Check-Out Date:</label>
+            <input type="datetime-local" id="checkOutDate" name="checkOutDate" required>
+
+            <label for="upiId">UPI ID:</label>
+            <input type="text" id="upiId" name="upiId" required>
+
+            <button type="submit">Book Room</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("hotelForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            // Collect form data
+            const userId = document.getElementById("userId").value;
+            const orderId = document.getElementById("orderId").value;
+            const productId = document.getElementById("productId").value;
+            const checkInDate = document.getElementById("checkInDate").value;
+            const checkOutDate = document.getElementById("checkOutDate").value;
+            const upiId = document.getElementById("upiId").value;
+
+            // Mock transaction form for demo
+            alert(`Transaction for UPI ID: ${upiId}\nAmount: ₹5000\nProcessing...`);
+
+            // Redirect to payment gateway or transaction form
+        });
+    </script>
+</body>
+
+</html>

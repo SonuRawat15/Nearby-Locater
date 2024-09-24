@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking</title>
+</head>
+<body>
+    <h1>Make a Booking</h1>
+    <form id="bookingForm">
+        <label for="userId">User ID:</label>
+        <input type="text" id="userId" name="userId" required><br><br>
+
+        <label for="businessId">Business ID:</label>
+        <input type="text" id="businessId" name="businessId" required><br><br>
+
+        <label for="bookingDate">Booking Date:</label>
+        <input type="datetime-local" id="bookingDate" name="bookingDate" required><br><br>
+
+        <label for="serviceDetails">Service Details:</label>
+        <input type="text" id="serviceDetails" name="serviceDetails" required><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        document.getElementById("bookingForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const userId = document.getElementById("userId").value;
+            const businessId = document.getElementById("businessId").value;
+            const bookingDate = document.getElementById("bookingDate").value;
+            const serviceDetails = document.getElementById("serviceDetails").value;
+
+            const bookingData = {
+                userId: userId,
+                businessId: businessId,
+                bookingDate: bookingDate,
+                serviceDetails: serviceDetails
+            };
+
+            fetch("/api/bookings/create", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(bookingData)
+            })
+            .then(response => response.text())
+            .then(data => alert(data))
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+</html>
