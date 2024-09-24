@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item Purchase</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://google.com/shop-background.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            width: 400px;
+            text-align: center;
+        }
+
+        button {
+            background-color: #ffa500;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #ff8c00;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Purchase Items</h1>
+        <form id="purchaseForm">
+            <label for="userId">User ID:</label>
+            <input type="text" id="userId" name="userId" required>
+
+            <label for="orderId">Order ID:</label>
+            <input type="text" id="orderId" name="orderId" required>
+
+            <label for="productId">Item ID:</label>
+            <input type="text" id="productId" name="productId" required>
+
+            <label for="purchaseDate">Purchase Date:</label>
+            <input type="datetime-local" id="purchaseDate" name="purchaseDate" required>
+
+            <label for="upiId">UPI ID:</label>
+            <input type="text" id="upiId" name="upiId" required>
+
+            <button type="submit">Purchase Now</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("purchaseForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            // Collect form data
+            const userId = document.getElementById("userId").value;
+            const orderId = document.getElementById("orderId").value;
+            const productId = document.getElementById("productId").value;
+            const purchaseDate = document.getElementById("purchaseDate").value;
+            const upiId = document.getElementById("upiId").value;
+
+            // Mock transaction form for demo
+            alert(`Transaction for UPI ID: ${upiId}\nAmount: ₹800\nProcessing...`);
+
+            // Redirect to payment gateway or transaction form
+        });
+    </script>
+</body>
+
+</html>
